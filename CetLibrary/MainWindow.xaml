@@ -1,0 +1,34 @@
+﻿<Window x:Class="CetLibrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CetLibrary"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+
+            <MenuItem Header="_Kullanıcı">
+
+                <MenuItem Header="Yeni"></MenuItem>
+                <MenuItem Header="Listele"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Ki_tap"></MenuItem>
+            <MenuItem Header="_İşlemler">
+                <MenuItem Header="Uygulamadan Çık" Click="MenuItem_Click" InputGestureText="X"></MenuItem>
+                <MenuItem Header="Ödünç Ver"></MenuItem>
+                <MenuItem Header="Geri Al"></MenuItem>
+                <MenuItem Header="Gecikme Cezası olsun" IsCheckable="True"></MenuItem>
+                <MenuItem x:Name="updatePasswordButton" Header="Şifremi Güncelle" Click="UpdatePasswordButton_OnClick"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBlock Name="txtLoginUser" Grid.Row="1"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,308,0,0" Grid.Row="2" Text="Şifre Değiştirme İşlemler Menüsü Altındadır." TextWrapping="Wrap" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

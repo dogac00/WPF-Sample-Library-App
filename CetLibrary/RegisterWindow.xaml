@@ -1,0 +1,26 @@
+﻿<Window x:Class="CetLibrary.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CetLibrary"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="448" Width="730" Loaded="Window_Loaded">
+    <Grid>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="244,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="417" Height="42"/>
+        <TextBox x:Name="surnameTextBox" HorizontalAlignment="Left" Margin="244,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="417" Height="40"/>
+        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="244,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="417" Height="40"/>
+        <Button x:Name="registerButton" Content="Kayıt Ol" HorizontalAlignment="Center" Margin="0,362,0,0" VerticalAlignment="Top" Height="42" Width="128" FontSize="16" BorderBrush="#FF4A19A0" Background="#FF9B9DCB" Click="registerButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,65,0,0" Text="İsim" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FF4211EA"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,106,0,0" Text="Soyisim" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FF4211EA"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,156,0,0" Text="Kullanıcı Adı" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FF4211EA"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,209,0,0" Text="Şifre" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FF4211EA"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,256,0,0" Text="Şifre (Tekrar)" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FF4211EA"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,304,0,0" Text="Rol" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FF4211EA"/>
+        <PasswordBox x:Name="passwordTextBox" PasswordChar="*" HorizontalAlignment="Left" Margin="244,201,0,0" VerticalAlignment="Top" Width="417" Height="42"/>
+        <PasswordBox x:Name="passwordAgainTextBox" PasswordChar="*" HorizontalAlignment="Left" Margin="244,250,0,0" VerticalAlignment="Top" Width="417" Height="42"/>
+        <ComboBox x:Name="roleComboBox" HorizontalAlignment="Left" Margin="244,301,0,0" VerticalAlignment="Top" Width="417" Height="40"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Kayıt Ekranı" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Foreground="#FF4211EA"/>
+
+    </Grid>
+</Window>
