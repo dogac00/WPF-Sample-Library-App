@@ -1,7 +1,14 @@
 ﻿namespace CetLibrary.Data
 {
-    public enum Role
+    public class Role
     {
-        SuperAdmin = 1, Admin = 2, User = 4
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool CanChangePassword { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

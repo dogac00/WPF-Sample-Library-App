@@ -84,8 +84,8 @@ namespace CetLibrary
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.roleComboBox.ItemsSource = new List<Role> { Role.User, Role.Admin, Role.SuperAdmin };
-            this.roleComboBox.SelectedItem = Role.User;
+            // TODO: Load roles to the select box
+            // TODO: Select one
         }
     }
 }

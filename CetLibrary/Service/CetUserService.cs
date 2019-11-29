@@ -2,6 +2,8 @@
 using System.Security.Cryptography;
 using System.Text;
 using CetLibrary.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CetLibrary.Service
 {
     public class CetUserService
@@ -22,10 +24,11 @@ namespace CetLibrary.Service
 
         public CetUser Login(string userName, string password)
         {
-            string hashedPasword = HashPassword(password);
+            string hashedPassword = HashPassword(password);
 
             var loginUser = _context.CetUsers
-                .FirstOrDefault(u => u.UserName == userName && u.Password == hashedPasword);
+                .Include(user => user.Role)
+                .FirstOrDefault(u => u.UserName == userName && u.Password == hashedPassword);
 
             return loginUser;
         }

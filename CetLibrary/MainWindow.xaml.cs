@@ -32,6 +32,8 @@ namespace CetLibrary
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.updatePasswordButton.IsEnabled = _loginUser.Role.CanChangePassword;
+
             string loginText = $"Merhaba {_loginUser.GetFullName()}, Rol : {_loginUser.Role}";
 
             txtLoginUser.Text = loginText;
@@ -49,7 +51,7 @@ namespace CetLibrary
         {
             UpdatePasswordWindow window = new UpdatePasswordWindow(_loginUser);
 
-            window.Show();
+            window.ShowDialog();
         }
     }
 }

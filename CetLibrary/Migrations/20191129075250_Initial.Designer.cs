@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CetLibrary.Migrations
 {
     [DbContext(typeof(LibraryDb))]
-    [Migration("20191122094915_seedData")]
-    partial class seedData
+    [Migration("20191129075250_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,9 @@ namespace CetLibrary.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -53,18 +56,62 @@ namespace CetLibrary.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("CetUsers");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2019, 11, 22, 12, 49, 14, 792, DateTimeKind.Local).AddTicks(6429),
-                            Name = "Super",
-                            Password = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-                            Surname = "User",
-                            UserName = "admin"
+                            CreatedDate = new DateTime(2019, 11, 29, 10, 52, 49, 923, DateTimeKind.Local).AddTicks(4093),
+                            Name = "dogac",
+                            Password = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+                            RoleId = 1,
+                            Surname = "akyildiz",
+                            UserName = "dogac"
                         });
+                });
+
+            modelBuilder.Entity("CetLibrary.Data.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("CanChangePassword")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CanChangePassword = true,
+                            Name = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CanChangePassword = false,
+                            Name = "student"
+                        });
+                });
+
+            modelBuilder.Entity("CetLibrary.Data.CetUser", b =>
+                {
+                    b.HasOne("CetLibrary.Data.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

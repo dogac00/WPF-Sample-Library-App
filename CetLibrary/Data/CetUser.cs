@@ -28,7 +28,8 @@ namespace CetLibrary.Data
         public string Password { get; set; }      
         public DateTime CreatedDate { get; set; }
 
-        public Role Role { get; set; }
+        public int RoleId { get; set; }
+        public virtual Role Role { get; set; }
 
         public override bool Equals(object obj)
         {
