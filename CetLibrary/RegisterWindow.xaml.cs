@@ -84,8 +84,13 @@ namespace CetLibrary
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // TODO: Load roles to the select box
-            // TODO: Select one
+            CetUserService service = ServiceProvider.GetUserService();
+
+            var roles = await service.GetRolesAsync();
+            int rand = new Random().Next(0, roles.Count);
+
+            this.roleComboBox.ItemsSource = roles;
+            this.roleComboBox.SelectedItem = roles[rand];
         }
     }
 }
